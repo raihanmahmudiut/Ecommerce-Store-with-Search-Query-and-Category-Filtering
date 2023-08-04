@@ -1,0 +1,11 @@
+:root {
+	--radio-background-color: color;
+	--radio-border-color: color;
+}
+
+.form-check-input:checked {
+	background-color: var(--radio-background-color);
+	border-color: var(--radio-border-color);
+}
+
+/* Add more color classes and their corresponding styles as needed */
