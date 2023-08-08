@@ -1,6 +1,4 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { FilterOutlined } from "@ant-design/icons";
 import Category from "./Category/Category";
 import Price from "./Price/Price";
 import Colors from "./Colors/Colors";
@@ -8,10 +6,10 @@ import "./Sidebar.css";
 
 function Sidebar({ handleChange }) {
 	return (
-		<section className="sidebar justify-content-start ">
+		<section className=" ">
 			<div className="logo-container">
-				<h1>
-					<AiOutlineShoppingCart />
+				<h1 className="">
+					<FilterOutlined />
 				</h1>
 			</div>
 			<div className="justify-content-start">
