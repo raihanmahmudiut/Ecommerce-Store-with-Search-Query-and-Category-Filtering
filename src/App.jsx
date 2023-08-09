@@ -10,14 +10,12 @@ import "./index.css";
 function App() {
 	return (
 		<ShopContextProvider>
-			<Container>
-				<Router>
-					<Routes>
-						<Route path="/" element={<Shop />} />
-						<Route path="/cart" element={<Cart />} />
-					</Routes>
-				</Router>
-			</Container>
+			<Router>
+				<Routes>
+					<Route path="/" element={<Shop />} />
+					<Route path="/cart" element={<Cart />} />
+				</Routes>
+			</Router>
 		</ShopContextProvider>
 	);
 }

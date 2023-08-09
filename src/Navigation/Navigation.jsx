@@ -8,7 +8,7 @@ function Navigation({ handleInputChange, query }) {
 	return (
 		<Navbar expand="lg">
 			<Container>
-				<Form inline>
+				<Form inline="true">
 					<Form.Control
 						type="text"
 						placeholder="Search"

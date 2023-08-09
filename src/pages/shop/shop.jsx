@@ -3,10 +3,16 @@ import Navigation from "../../Navigation/Navigation";
 import Recommended from "./Recommended/Recommended";
 import Products from "./Products/Products";
 import { Row, Col } from "antd";
+import { FilterOutlined } from "@ant-design/icons";
 import "./shop.css";
+import "./siderCollapseStyles.css";
+
 import { useState } from "react";
 import products from "../../db/data";
 import CardComponent from "../../components/Card";
+import Category from "../shop/Sidebar/Category/Category";
+import Price from "../shop/Sidebar/Price/Price";
+import Colors from "../shop/Sidebar/Colors/Colors";
 
 //-------------Ant Design Layout --------------------
 import { Layout } from "antd";
@@ -114,8 +120,25 @@ function Shop() {
 			</Header>
 
 			<Layout hasSider>
-				<Sider style={siderStyle}>
-					<Sidebar handleChange={handleChange} />
+				<Sider
+					style={siderStyle}
+					collapsible
+					defaultCollapsed
+					collapsedWidth={0}
+					breakpoint="lg"
+				>
+					<div className="justify-content-center">
+						<h1>
+							<FilterOutlined />
+						</h1>
+					</div>
+					<div>
+						<Category handleChange={handleChange} />
+
+						<Price handleChange={handleChange} />
+
+						<Colors handleChange={handleChange} />
+					</div>
 				</Sider>
 				<Content style={contentStyle}>
 					<Recommended handleClick={handleClick} />
