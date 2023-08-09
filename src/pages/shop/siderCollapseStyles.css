@@ -1,5 +1,5 @@
 /* siderCollapseStyles.css */
-@media (min-width: 992px) {
+@media (min-width: 768px) {
 	.ant-layout-sider-collapsed {
 		width: 0 !important;
 	}

@@ -5,7 +5,7 @@ import Products from "./Products/Products";
 import { Row, Col } from "antd";
 import { FilterOutlined } from "@ant-design/icons";
 import "./shop.css";
-import "./siderCollapseStyles.css";
+// import "./siderCollapseStyles.css";
 
 import { useState } from "react";
 import products from "../../db/data";
@@ -48,7 +48,7 @@ const footerStyle = {
 
 function Shop() {
 	const [selectedCategory, setSelectedCategory] = useState(null);
-
+	const [collapsed, setCollapsed] = useState(true);
 	//input filter
 	const [query, setQuery] = useState("");
 
@@ -126,19 +126,21 @@ function Shop() {
 					defaultCollapsed
 					collapsedWidth={0}
 					breakpoint="lg"
+					onCollapse={(collapsed) => setCollapsed(collapsed)}
 				>
 					<div className="justify-content-center">
 						<h1>
 							<FilterOutlined />
 						</h1>
 					</div>
-					<div>
-						<Category handleChange={handleChange} />
 
-						<Price handleChange={handleChange} />
-
-						<Colors handleChange={handleChange} />
-					</div>
+					{!collapsed && (
+						<div>
+							<Category handleChange={handleChange} />
+							<Price handleChange={handleChange} />
+							<Colors handleChange={handleChange} />
+						</div>
+					)}
 				</Sider>
 				<Content style={contentStyle}>
 					<Recommended handleClick={handleClick} />
