@@ -1,7 +1,8 @@
+import { Container } from "react-bootstrap";
 import "./Products.css";
 
 function Products({ result }) {
-	return <div>{result}</div>;
+	return <Container>{result}</Container>;
 }
 
 export default Products;
