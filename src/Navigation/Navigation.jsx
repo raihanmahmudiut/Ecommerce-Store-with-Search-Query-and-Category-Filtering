@@ -8,24 +8,21 @@ function Navigation({ handleInputChange, query }) {
 	return (
 		<Navbar expand="lg">
 			<Container>
-				<Navbar.Brand as={Link} to="/">
-					Flyheel
-				</Navbar.Brand>
-				<Form>
+				<Form inline>
 					<Form.Control
 						type="text"
 						placeholder="Search"
-						className=" mr-sm-2"
 						onChange={handleInputChange}
 						value={query}
 					/>
 				</Form>
+
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 
 				<Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-					<Nav>
+					<Nav className="mr-auto">
 						<Nav.Link as={Link} to="/">
-							<FiHeart size={32} />
+							<p size={32}>Flyheel</p>
 						</Nav.Link>
 						<Nav.Link as={Link} to="/cart">
 							<AiOutlineShoppingCart size={32} />

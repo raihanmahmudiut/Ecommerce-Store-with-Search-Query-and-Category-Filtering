@@ -3,7 +3,7 @@ import Navigation from "../../Navigation/Navigation";
 import Recommended from "./Recommended/Recommended";
 import Products from "./Products/Products";
 import { Row, Col } from "antd";
-
+import "./shop.css";
 import { useState } from "react";
 import products from "../../db/data";
 import CardComponent from "../../components/Card";
@@ -12,12 +12,11 @@ import CardComponent from "../../components/Card";
 import { Layout } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
 const headerStyle = {
-	textAlign: "center",
 	color: "#e5e5e6",
 	height: 80,
-	paddingInline: 50,
+
 	lineHeight: "64px",
-	backgroundColor: "#53a8b6",
+	backgroundColor: "#ffffff",
 };
 const contentStyle = {
 	textAlign: "center",
@@ -110,13 +109,19 @@ function Shop() {
 
 	return (
 		<Layout>
-			<Sider style={siderStyle}>
-				<Sidebar handleChange={handleChange} />
-			</Sider>
-			<Content style={contentStyle}>
-				<Recommended handleClick={handleClick} />
-				<Products result={result} />
-			</Content>
+			<Header style={headerStyle} className="custom-header">
+				<Navigation handleInputChange={handleInputChange} />
+			</Header>
+
+			<Layout hasSider>
+				<Sider style={siderStyle}>
+					<Sidebar handleChange={handleChange} />
+				</Sider>
+				<Content style={contentStyle}>
+					<Recommended handleClick={handleClick} />
+					<Products result={result} />
+				</Content>
+			</Layout>
 		</Layout>
 	);
 }

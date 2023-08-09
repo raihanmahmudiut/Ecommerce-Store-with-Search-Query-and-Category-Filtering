@@ -12,7 +12,6 @@ function App() {
 		<ShopContextProvider>
 			<Container>
 				<Router>
-					<Navigation />
 					<Routes>
 						<Route path="/" element={<Shop />} />
 						<Route path="/cart" element={<Cart />} />
