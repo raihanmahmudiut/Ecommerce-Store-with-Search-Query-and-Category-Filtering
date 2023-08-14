@@ -2,8 +2,8 @@ import Sidebar from "./Sidebar/Sidebar";
 import Navigation from "../../Navigation/Navigation";
 import Recommended from "./Recommended/Recommended";
 import Products from "./Products/Products";
-import { Row, Col } from "antd";
-import { FilterOutlined } from "@ant-design/icons";
+import { Row, Col, Button } from "antd";
+import { FilterOutlined, FilterFilled } from "@ant-design/icons";
 import "./shop.css";
 // import "./siderCollapseStyles.css";
 
@@ -123,18 +123,29 @@ function Shop() {
 				<Sider
 					style={siderStyle}
 					collapsible
-					defaultCollapsed
+					collapsed={collapsed}
 					collapsedWidth={0}
-					breakpoint="lg"
-					onCollapse={(collapsed) => setCollapsed(collapsed)}
+					onCollapse={() => setCollapsed(!collapsed)}
+					trigger={null}
 				>
+					<Button
+						type="text"
+						icon={collapsed ? <FilterFilled /> : <FilterOutlined />}
+						onClick={() => setCollapsed(!collapsed)}
+						className="ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-left"
+						style={{
+							fontSize: "16px",
+							width: 40,
+							height: 40,
+						}}
+					/>
 					<div className="justify-content-center">
 						<h1>
 							<FilterOutlined />
 						</h1>
 					</div>
 
-					{!collapsed && (
+					{collapsed ? null : (
 						<div>
 							<Category handleChange={handleChange} />
 							<Price handleChange={handleChange} />

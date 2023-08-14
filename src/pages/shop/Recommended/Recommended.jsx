@@ -1,8 +1,5 @@
-import React from "react";
 import { Card } from "antd";
 import Buttons from "../../../components/Button";
-
-const { Meta } = Card;
 
 function Recommended({ handleClick }) {
 	return (
