@@ -1,1 +1,8 @@
-
+@media (max-width: 820px) {
+	.mobile-nav {
+		display: flex;
+		flex-direction: row-reverse; /* Reverses the order of flex items */
+		z-index: 10; /* Higher z-index to ensure navigation links appear above content */
+		position: relative; /* Ensure position is relative for z-index to work */
+	}
+}

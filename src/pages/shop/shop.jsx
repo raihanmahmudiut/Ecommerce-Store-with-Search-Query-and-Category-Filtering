@@ -21,7 +21,7 @@ const headerStyle = {
 	color: "#e5e5e6",
 	height: 80,
 
-	lineHeight: "64px",
+	lineHeight: "24px",
 	backgroundColor: "#ffffff",
 };
 const contentStyle = {
@@ -136,7 +136,7 @@ function Shop() {
 						style={{
 							fontSize: "16px",
 							width: 40,
-							height: 40,
+							height: 48,
 						}}
 					/>
 					<div className="justify-content-center">
