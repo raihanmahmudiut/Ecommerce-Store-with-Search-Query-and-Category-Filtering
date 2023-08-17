@@ -3,8 +3,14 @@ import Category from "./Category/Category";
 import Price from "./Price/Price";
 import Colors from "./Colors/Colors";
 import "./Sidebar.css";
+import React from "react";
 
-function Sidebar({ handleChange }) {
+// the interface for the props
+interface SidebarProps {
+	handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+  
+function Sidebar({ handleChange }: SidebarProps) {
 	return (
 		<section className=" ">
 			<div className="logo-container">

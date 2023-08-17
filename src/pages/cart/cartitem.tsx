@@ -2,9 +2,24 @@ import React, { useContext } from "react";
 import { ShopContext } from "../../context/shopcontext";
 import "./cart.css";
 
-export const CartItem = ({ id, title, newPrice, img }) => {
-	const { cartItems, addToCart, removeFromCart, updateCartItemCount } =
-		useContext(ShopContext);
+interface CartItemProps {
+	id: number;
+	title: string;
+	newPrice: number;
+	img: string;
+}
+
+export const CartItem: React.FC<CartItemProps> = ({ id, title, newPrice, img }) => {
+	const shopContext = useContext(ShopContext);
+
+  if (!shopContext) {
+    // Handle the case when context is null
+    return null; // or any other fallback UI
+  }
+
+	const { cartItems, addToCart, removeFromCart, updateCartItemCount } = shopContext;
+	
+	
 
 	return (
 		<div className="cartItem">

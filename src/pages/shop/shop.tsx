@@ -1,3 +1,4 @@
+import React from 'react';
 import Sidebar from "./Sidebar/Sidebar";
 import Navigation from "../../Navigation/Navigation";
 import Recommended from "./Recommended/Recommended";
@@ -8,7 +9,7 @@ import "./shop.css";
 // import "./siderCollapseStyles.css";
 
 import { useState } from "react";
-import products from "../../db/data";
+import products from "../../db/data.jsx";
 import CardComponent from "../../components/Card";
 import Category from "../shop/Sidebar/Category/Category";
 import Price from "../shop/Sidebar/Price/Price";
@@ -20,59 +21,67 @@ const { Header, Footer, Sider, Content } = Layout;
 const headerStyle = {
 	color: "#e5e5e6",
 	height: 80,
-
 	lineHeight: "24px",
 	backgroundColor: "#ffffff",
-};
-const contentStyle = {
+  } as const;
+  
+  const contentStyle = {
 	textAlign: "center",
 	minHeight: 120,
 	lineHeight: "120px",
 	color: "#fff",
 	backgroundColor: "#bbe4e9",
-};
-const siderStyle = {
-	display: "flex", // Set the container to display as flex
-	flexDirection: "column", // Stack items vertically
+  } as const;
+  
+  const siderStyle = {
+	display: "flex",
+	flexDirection: "column",
 	alignItems: "center",
 	textAlign: "left",
 	lineHeight: "20px",
 	color: "#fff",
 	backgroundColor: "#79c2d0",
-};
-const footerStyle = {
+  } as const;
+  
+  const footerStyle = {
 	textAlign: "center",
 	color: "#fff",
 	backgroundColor: "#7dbcea",
-};
+  } as const;
+  
+
+
+
 
 function Shop() {
-	const [selectedCategory, setSelectedCategory] = useState(null);
-	const [collapsed, setCollapsed] = useState(true);
-	//input filter
-	const [query, setQuery] = useState("");
+	const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [collapsed, setCollapsed] = useState<boolean>(true);
+  const [query, setQuery] = useState<string>(""); // Assuming query should be a string
 
-	const handleInputChange = (event) => {
+	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setQuery(event.target.value);
-	};
-
-	const filteredItems = products.filter(
+	  };
+	  
+	  const filteredItems = products.filter(
 		(product) => product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
-	);
-
-	//Radio Filter
-
-	const handleChange = (event) => {
+	  );
+	  
+	  // Radio Filter
+	  
+	  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setSelectedCategory(event.target.value);
-	};
+	  };
+	  
+	  // Button filter Recommended
+	  
+	  const handleClick = (value: string) => {
+		setSelectedCategory(value);
+	  };
+	  
+	  
+	  
 
-	//button filter Recommended
-
-	const handleClick = (event) => {
-		setSelectedCategory(event.target.value);
-	};
-
-	function filteredData(products, selected, query) {
+	function filteredData(products: { id: number; img: string; title: string; star: React.JSX.Element; reviews: string; prevPrice: string; newPrice: string; company: string; color: string; category: string; }[], selected: string | null, query: string) {
 		let filteredProducts = products;
 
 		// filtering input items
@@ -116,7 +125,7 @@ function Shop() {
 	return (
 		<Layout>
 			<Header style={headerStyle} className="custom-header">
-				<Navigation handleInputChange={handleInputChange} />
+				<Navigation handleInputChange={handleInputChange} query={undefined} />
 			</Header>
 
 			<Layout hasSider>
@@ -154,7 +163,7 @@ function Shop() {
 					)}
 				</Sider>
 				<Content style={contentStyle}>
-					<Recommended handleClick={handleClick} />
+					<Recommended handleClick={(value: string) => handleClick(value)}/>
 					<Products result={result} />
 				</Content>
 			</Layout>

@@ -1,9 +1,14 @@
 import { Row, Col, Form, Typography } from "antd";
 import Input from "../../../../components/Input";
+import React from "react";
 
 const { Text } = Typography;
 
-function Colors({ handleChange }) {
+interface ColorsProps {
+	handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+
+function Colors({ handleChange }: ColorsProps) {
 	return (
 		<Row>
 			<Col span={24}>

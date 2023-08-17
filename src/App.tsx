@@ -1,3 +1,5 @@
+import React from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigation from "./Navigation/Navigation";
 import Shop from "./pages/shop/shop";
@@ -7,7 +9,12 @@ import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
-function App() {
+// Defined the type for the App component's props
+// For now, it doesn't receive any props
+type AppProps = {};
+
+// Definedthe App component with TypeScript typings
+const App: React.FC<AppProps> = () => {
 	return (
 		<ShopContextProvider>
 			<Router>

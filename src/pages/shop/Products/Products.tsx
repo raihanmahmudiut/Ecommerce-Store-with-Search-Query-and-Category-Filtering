@@ -1,7 +1,12 @@
 import { Container } from "react-bootstrap";
 import "./Products.css";
+import React from "react";
 
-function Products({ result }) {
+interface ProductProps {
+	result: JSX.Element;
+}
+
+function Products({ result }: ProductProps) {
 	return <Container>{result}</Container>;
 }
 
